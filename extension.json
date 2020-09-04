@@ -1,0 +1,44 @@
+{
+	"name": "Isekai Indent",
+	"author": "Hyperzlib",
+	"version": "1.0.0",
+	"url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiIndent",
+	"descriptionmsg": "isekai-indent-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+	
+	},
+	"MessagesDirs": {
+		"IsekaiIndent": [
+			"i18n"
+		]
+	},
+	"DefaultUserOptions": {
+		"isekai-show-indent": 1
+	},
+	"AutoloadClasses": {
+		"Isekai\\Indent\\Indent": "includes/Indent.php",
+		"Isekai\\Indent\\Formatter": "includes/Formatter.php",
+		"Isekai\\Indent\\FormatterException": "includes/FormatterException.php"
+	},
+	"Hooks": {
+		"OutputPageBeforeHTML": "Isekai\\Indent\\Indent::onOutputPageBeforeHTML",
+		"BeforePageDisplay": "Isekai\\Indent\\Indent::onBeforePageDisplay",
+		"GetPreferences": "Isekai\\Indent\\Indent::onGetPreferences"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "modules",
+		"remoteExtPath": "Isekai/modules"
+	},
+	"ResourceModules": {
+		"ext.isekai.indent": {
+			"styles": "isekai-indent.less",
+			"targets": [
+				"desktop",
+				"mobile"
+			]
+		}
+	},
+	"manifest_version": 1
+}
