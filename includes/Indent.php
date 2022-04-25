@@ -1,11 +1,18 @@
 <?php
 namespace Isekai\Indent;
 
+use MediaWiki\MediaWikiServices;
 use User;
 
 class Indent {
-	public static function onOutputPageBeforeHTML(\OutputPage $out, &$text){
-		if($out->getUser()->getOption('isekai-show-indent') && $out->getSkin()->getSkinName() != 'minerva'){
+	/**
+	 * @param \OutputPage $out
+	 * @param string $text
+	 */
+	public static function onOutputPageBeforeHTML($out, &$text){
+		$service = MediaWikiServices::getInstance();
+		if($service->getUserOptionsLookup()->getOption($out->getUser(), 'isekai-show-indent')
+				&& $out->getSkin()->getSkinName() != 'minerva'){
 			$namespace = $out->getTitle()->getNamespace();
 			if(in_array($namespace, [0])){
 				try {

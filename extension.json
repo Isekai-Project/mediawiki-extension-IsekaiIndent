@@ -7,7 +7,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-	
+		"MediaWiki": ">= 1.35.0"
 	},
 	"MessagesDirs": {
 		"IsekaiIndent": [

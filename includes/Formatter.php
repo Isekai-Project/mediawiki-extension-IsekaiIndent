@@ -18,7 +18,7 @@ class Formatter {
 	private $dom;
 	private $target = null;
 	private $colorList = ['purple', 'green', 'yellow', 'aqua', 'red'];
-	private $headerTag = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+	private $headerTag = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7'];
 	private $colorSeek = 0;
 	
 	public function __construct($html){
@@ -47,7 +47,7 @@ class Formatter {
 		$element = $source->firstChild;
 		while($element){
 			$nodeName = strtolower($element->nodeName);
-			if($nodeName[0] == 'h'){
+			if(in_array($nodeName, $this->headerTag)){
 				$currentLevel = intval(substr($nodeName, 1));
 				if(is_integer($currentLevel) && $currentLevel > 0){
 					//判断层级
