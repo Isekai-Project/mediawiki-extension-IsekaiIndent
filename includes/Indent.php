@@ -27,6 +27,7 @@ class Indent {
 	}
 	
 	public static function onBeforePageDisplay($outputPage){
+		$outputPage->addModuleStyles('ext.isekai.indent');
 		$outputPage->addModules('ext.isekai.indent');
 	}
 
