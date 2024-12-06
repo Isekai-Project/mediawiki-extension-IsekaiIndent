@@ -1,11 +1,17 @@
 .isekai-indent {
-	border-left-width: 3px;
+    border-left-width: 3px;
     border-left-style: solid;
     border-left-color: grey;
     padding-left: 3px;
 	
-	> *:not(.isekai-indent) {
+	> *:not(.isekai-indent, div, pre, h1, h2, h3, h4, h5, h6) {
 		padding-left: 8px;
+	}
+
+	> h1, > h2, > h3, > h4, > h5, > h6 {
+		.mw-headline {
+			padding-inline-start: 8px;
+		}
 	}
 	
 	&.isekai-indent-purple {

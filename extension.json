@@ -1,5 +1,6 @@
 {
 	"name": "Isekai Indent",
+	"namemsg": "isekai-indent-name",
 	"author": "Hyperzlib",
 	"version": "1.0.0",
 	"url": "https://github.com/Isekai-Project/mediawiki-extension-IsekaiIndent",
@@ -7,7 +8,7 @@
 	"license-name": "MIT",
 	"type": "other",
 	"requires": {
-	
+		"MediaWiki": ">= 1.35.0"
 	},
 	"MessagesDirs": {
 		"IsekaiIndent": [
@@ -17,15 +18,19 @@
 	"DefaultUserOptions": {
 		"isekai-show-indent": 1
 	},
-	"AutoloadClasses": {
-		"Isekai\\Indent\\Indent": "includes/Indent.php",
-		"Isekai\\Indent\\Formatter": "includes/Formatter.php",
-		"Isekai\\Indent\\FormatterException": "includes/FormatterException.php"
+	"AutoloadNamespaces": {
+		"Isekai\\Indent\\": "includes/"
 	},
 	"Hooks": {
-		"OutputPageBeforeHTML": "Isekai\\Indent\\Indent::onOutputPageBeforeHTML",
-		"BeforePageDisplay": "Isekai\\Indent\\Indent::onBeforePageDisplay",
-		"GetPreferences": "Isekai\\Indent\\Indent::onGetPreferences"
+		"OutputPageBeforeHTML": [
+			"Isekai\\Indent\\Hooks::onOutputPageBeforeHTML"
+		],
+		"BeforePageDisplay": [
+			"Isekai\\Indent\\Hooks::onBeforePageDisplay"
+		],
+		"GetPreferences": [
+			"Isekai\\Indent\\Hooks::onGetPreferences"
+		]
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "modules",
@@ -40,5 +45,13 @@
 			]
 		}
 	},
-	"manifest_version": 1
+	"config": {
+		"IsekaiIndentSkins": {
+			"value": []
+		},
+		"IsekaiIndentFixTitleSkins": {
+			"values": []
+		}
+	},
+	"manifest_version": 2
 }
